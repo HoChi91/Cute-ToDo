@@ -39,3 +39,27 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Electron specific
+/dist/
+/*.dmg
+/*.zip
+/*.blockmap
+/.electron/
+
+# Log files
+*.log
+
+# Editor and IDE files
+/.vscode/
+/.idea/
+
+# Temporary and backup files
+*.bak
+*.swp
+*.swo
+
+# Environment variables
+*.env
+*.env.local
+*.env.*.local

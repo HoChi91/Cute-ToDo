@@ -1,42 +1,193 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@import url("https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap");
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
+/* Appliquer à tout le projet */
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  font-family: "Gochi Hand", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  background-color: #ffefef;
+}
+
+button {
+  font-family: "Pixelify Sans";
+  background-color: #fda4a9;
+  width: 60px;
+  height: 40px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.mainDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: flex-start;
+  text-align: center;
+  height: 100vh;
+  width: 100%;
+}
+.dashDiv {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 32px;
+}
+
+.top-section {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.date-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background-color: #fecdd0;
+  border-radius: 12px;
+  border-style: solid;
+  border-color: #88132f;
+  width: 150px;
+  height: 165px;
+}
+
+.date-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.date-text p {
+  margin: -10px 0;
+  font-size: 20px;
+  color: #333;
+}
+
+.circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #fb717b; /* Tu peux changer la couleur ici */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 54px;
+  margin: 10px 0;
+}
+
+.progression {
+  padding: 10px;
+  height: 60%;
+  background-color: #ffe4e4;
+  border: 4px solid #fb717b;
+  border-radius: 25px;
+  box-shadow: 2px 2px 4px rgba(21, 30, 8, 0.6);
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.progression h3 {
+  font-family: "Pixelify Sans";
+  font-size: 20px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+#progress-bar {
+  appearance: none;
+  height: 16px;
+  width: 70%;
+  border-radius: 10px;
+}
+#progress-bar::-webkit-progress-bar {
+  background-color: #fda4a9;
+  border-radius: 10px;
+}
+#progress-bar::-webkit-progress-value {
+  background-color: #88132f;
+  border-radius: 10px;
+  transition: width 0.5s ease-in-out;
+}
+
+.add-task {
+  display: flex;
+  flex-direction: row;
+  margin-top: 16px;
+  justify-content: space-between;
+}
+.add-task input {
+  outline: none;
+  border: none;
+  padding: 14px;
+  border-radius: 50px;
+}
+.add-task button {
+  font-size: 14px;
+  color: #fef6f0;
+  background-color: #fda4a9;
+  padding: 0px 16px;
+  outline: none;
+  border: none;
+  border-radius: 16px;
+}
+
+.task-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px;
+  background-color: #fecdd0;
+  border-radius: 12px;
+  border-style: solid;
+  border-color: #88132f;
+  width: 385px;
+  max-height: 300px; /* ✅ Limite la hauteur */
+  overflow-y: auto; /* ✅ Ajoute un scroll si trop de tâches */
+  overflow-x: hidden; /* ✅ Empêche le débordement horizontal */
+}
+
+/* Liste des tâches */
+.task-container ul {
+  list-style-type: none; /* ✅ Enlève les puces (optionnel) */
   padding: 0;
   margin: 0;
+  width: 100%; /* ✅ S'assure que la liste ne dépasse pas */
+  column-count: 1; /* ✅ Une seule colonne pour éviter le débordement */
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+/* Éléments des tâches */
+.task-container li {
+  font-family: "Pixelify Sans";
+  margin: 5px 0;
+  word-wrap: break-word; /* ✅ Coupe les mots trop longs */
+  white-space: normal; /* ✅ Permet le retour à la ligne */
+  max-width: 100%; /* ✅ Empêche le dépassement */
+  padding: 8px;
+  background-color: #fff;
+  border-radius: 8px;
+  text-align: left;
+  width: 100%; /* ✅ S'assure que les tâches prennent toute la largeur */
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+/* ✅ Apparence des tâches complétées */
+.task-container li.checked {
+  text-decoration: line-through;
+  color: #888;
 }
